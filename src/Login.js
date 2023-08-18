@@ -27,7 +27,7 @@ export default function Login() {
           className={errMsg ? "errmsg" : "offscreen"}
           aria-live="assertive"
         >
-          {errMsg} suraj
+          {errMsg}
         </p>
       </section>
     </>
