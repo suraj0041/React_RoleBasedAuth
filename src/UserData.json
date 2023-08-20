@@ -1,14 +1,20 @@
 [
   {
     "Uid": 1,
-    "username": "suraj",
-    "password": "Sur@j12345",
-    "role": "admin"
+    "username": "12345",
+    "password": "12345",
+    "role": [2001]
   },
   {
-    "Uid": 1,
-    "username": "suraj",
-    "password": "Sur@j12345",
-    "role": "admin"
+    "Uid": 2,
+    "username": "123456",
+    "password": "123456",
+    "role": [1984, 2001]
+  },
+  {
+    "Uid": 3,
+    "username": "1234567",
+    "password": "1234567",
+    "role": [5150, 2001]
   }
 ]

@@ -12,6 +12,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/register";
 
 export default function Register() {
+  // Register is not intgreated with login
+  // user data need to be moved to localstoage
   const userRef = useRef();
   const errRef = useRef();
 
