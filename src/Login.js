@@ -18,7 +18,7 @@ export default function Login() {
   // const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    //userRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -28,19 +28,35 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let FoundUser = UserData.filter(
-      (u) => u.username === user && u.password === pwd
-    );
-    console.table(`FoundUser:${FoundUser}`);
-    if (FoundUser.length > 0) {
-      let role = FoundUser[0]?.role;
-      let accessToken = "accessToken";
-      console.log(from, user, pwd, role);
-      setAuth({ user, pwd, role, accessToken });
-      setUser("");
-      setPwd("");
-      navigate(from, { replace: true });
-    }
+    // let FoundUser = UserData.filter(
+    //   (u) => u.username === user && u.password === pwd
+    // );
+    // console.table(`FoundUser:${FoundUser}`);
+    //if (false) {
+
+    fetch("https://d7s2x6-8080.csb.app/login", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      headers: {
+        "Content-Type": "application/json"
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({ username: user, password: pwd })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const { username, password, role, accessToken } = data;
+
+        console.log(from, username, password, role, accessToken);
+        setAuth({ user, pwd, role, accessToken });
+        setUser("");
+        setPwd("");
+        navigate(from, { replace: true });
+      });
+    //let role = FoundUser[0]?.role;
+    //let accessToken = "accessToken";
+
+    //}
   };
   return (
     <>
